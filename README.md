@@ -133,14 +133,27 @@ $ gfi search -hf --limit 10 --period "48 hours"
 
 </details>
 
+
+
 ### Filter by Language
+
+- `--language`: filters issues by programming language (e.g., Python, JavaScript)
+
+```bash
 
 $ gfi search "facebook" --language "Python"
 
+```
+
 ### Filter by Keyword
+
+- `--keyword`: searches for specific keywords in issue titles/descriptions
+
+```bash
 
 $ gfi search "rust-lang" --keyword "documentation"
 
+```
 ### Combine Filters
 
 $ gfi search "microsoft" --language "JavaScript" --keyword "API"
