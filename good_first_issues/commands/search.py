@@ -12,7 +12,6 @@ from good_first_issues.utils import ParsedDuration, parse_period
 
 console = Console(color_system="auto")
 
-
 period_help_msg = """
 Specify a time range for filtering data.
 Converts the specified time range to UTC date time.
@@ -38,7 +37,6 @@ $ gfi search "yankeexe" --user --repo "good-first-issues" -p "600 days"
 
 --period 3 d,day,days
 """
-
 
 @click.command()
 @click.option(
@@ -217,7 +215,7 @@ def search(
             if keyword:
                 filter_msg.append(f"keyword '{keyword}'")
             filter_text = " and ".join(filter_msg)
-            
+
             return console.print(
                 f"No issues found matching {filter_text}. Try different filters!",
                 style="bold red",
@@ -244,7 +242,7 @@ def search(
     )
 
     console.print(f"Remaining requests:dash:: {rate_limit}", style="bold green")
-    
+
     # Show active filters
     if keyword or language:
         filter_info = []
@@ -256,5 +254,5 @@ def search(
             f"Filters applied: {', '.join(filter_info)}",
             style="bold cyan",
         )
-    
+
     console.print("Happy Hacking :tada::zap::rocket:", style="bold blue")
