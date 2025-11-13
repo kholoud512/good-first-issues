@@ -12,3 +12,5 @@ Example usage:
 ```bash
 
 good-first-issues --language Python --keyword documentation
+
+```
