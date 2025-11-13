@@ -133,6 +133,17 @@ $ gfi search -hf --limit 10 --period "48 hours"
 
 </details>
 
+### Filter by Language
+
+$ gfi search "facebook" --language "Python"
+
+### Filter by Keyword
+
+$ gfi search "rust-lang" --keyword "documentation"
+
+### Combine Filters
+
+$ gfi search "microsoft" --language "JavaScript" --keyword "API"
 
 ### 📏 Search for issues within a certain period
 

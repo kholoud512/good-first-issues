@@ -7,4 +7,3 @@ This change introduces two new CLI flags:
 Example usage:
 ```bash
 good-first-issues --language Python --keyword documentation
-

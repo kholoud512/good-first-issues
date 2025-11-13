@@ -176,25 +176,18 @@ def search(
         issues, rate_limit = services.extract_search_results(response)
         issues = issues[:limit]  # cannot set limit on the search_query directly
 
-    # Apply keyword filter
-    if keyword:
+    # Apply filters
+    if keyword or language:  # ← ADD 4 SPACES HERE!
         filtered_issues = []
         for issue in issues:
-            # issue is a tuple: (title, url)
             title = issue[0].lower()
-            # Check if keyword is in the title
-            if keyword.lower() in title:
-                filtered_issues.append(issue)
-        issues = filtered_issues
-
-    # Apply language filter
-    if language:
-        filtered_issues = []
-        for issue in issues:
-            # issue is a tuple: (title, url)
-            title = issue[0].lower()
-            # Simple language detection by keyword matching in title
-            if language.lower() in title:
+            # Check both filters
+            matches = True
+            if keyword and keyword.lower() not in title:
+                matches = False
+            if language and language.lower() not in title:
+                matches = False
+            if matches:
                 filtered_issues.append(issue)
         issues = filtered_issues
 
